@@ -34,12 +34,12 @@ Choose your path:
 
 **Linux / macOS:**
 ```bash
-curl -fsSL https://raw.githubusercontent.com/your-org/local-commit/main/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/ajiinvc/local-commit/main/scripts/install.sh | bash
 ```
 
 **Windows (PowerShell):**
 ```powershell
-irm https://raw.githubusercontent.com/your-org/local-commit/main/scripts/install.ps1 | iex
+irm https://raw.githubusercontent.com/ajiinvc/local-commit/main/scripts/install.ps1 | iex
 ```
 
 The script auto-detects what you have (pip → binary → Docker) and picks the
@@ -73,7 +73,7 @@ lc
 ### Pre-built binary (no Python, no Docker)
 
 Grab the latest binary from
-[GitHub Releases](https://github.com/your-org/local-commit/releases):
+[GitHub Releases](https://github.com/ajiinvc/local-commit/releases):
 
 | Platform | Binary |
 |----------|--------|
