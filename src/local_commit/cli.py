@@ -173,9 +173,10 @@ def interactive_mode(auto: bool = False) -> None:
     _print_groups(groups)
 
     if not auto:
-        groups = _prompt_group_selection(groups)
-        if groups is None:
+        selected = _prompt_group_selection(groups)
+        if selected is None:
             return
+        groups = selected
 
     # Stage everything once
     step("Staging all changes")
