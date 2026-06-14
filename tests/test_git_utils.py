@@ -1,16 +1,14 @@
 """Integration tests for git utility functions (require a real git repo)."""
 
-import os
 import subprocess
+
 import pytest
-from pathlib import Path
 
 from local_commit.git_utils import ensure_git_repo, get_changed_files, get_diff
 
-
 RUNNING_IN_REPO = (
     subprocess.run(
-        ["git", "rev-parse", "--is-inside-work-tree"],
+        ["git", "rev-parse", "--is-inside-work-tree"],  # noqa: S607
         capture_output=True,
         text=True,
     ).returncode

@@ -1,6 +1,6 @@
 """Tests for the file-grouping logic."""
 
-from local_commit.grouping import group_changes, _classify
+from local_commit.grouping import _classify, group_changes
 
 
 def test_empty_changes() -> None:
