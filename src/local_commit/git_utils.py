@@ -15,7 +15,7 @@ def git(args: list[str], capture: bool = True, check: bool = True) -> str:
     Returns stdout (stripped), or an empty string on failure.
     Never returns None.
     """
-    result = subprocess.run(
+    result = subprocess.run(  # noqa: S603, S607
         ["git"] + args,
         capture_output=capture,
         text=True,
@@ -38,7 +38,7 @@ def git(args: list[str], capture: bool = True, check: bool = True) -> str:
 def ensure_git_repo() -> None:
     """Exit with error if CWD is not inside a git repository."""
     result = subprocess.run(
-        ["git", "rev-parse", "--is-inside-work-tree"],
+        ["git", "rev-parse", "--is-inside-work-tree"],  # noqa: S607
         capture_output=True,
         text=True,
         encoding="utf-8",
@@ -106,8 +106,8 @@ def get_diff(max_chars: int = 3000) -> tuple[str, str]:
 def stage_files(files: list[str]) -> None:
     """Stage a list of file paths."""
     for f in files:
-        subprocess.run(
-            ["git", "add", "--", f],
+        subprocess.run(  # noqa: S603
+            ["git", "add", "--", f],  # noqa: S607
             capture_output=True,
             encoding="utf-8",
             errors="replace",
@@ -116,8 +116,8 @@ def stage_files(files: list[str]) -> None:
 
 def do_commit(message: str) -> None:
     """Run git commit with the given message."""
-    result = subprocess.run(
-        ["git", "commit", "-m", message],
+    result = subprocess.run(  # noqa: S603
+        ["git", "commit", "-m", message],  # noqa: S607
         capture_output=True,
         text=True,
     )

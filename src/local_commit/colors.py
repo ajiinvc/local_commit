@@ -67,7 +67,7 @@ def print_banner() -> None:
     try:
         print(banner)
     except UnicodeEncodeError:
-        fallback = f"""
+        fallback = """
   +------------------------------------+
   |   local-commit  (local LLM)        |
   +------------------------------------+

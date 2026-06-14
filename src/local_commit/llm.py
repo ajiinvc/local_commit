@@ -4,12 +4,12 @@ import os
 import textwrap
 
 from local_commit.config import (
-    MODEL_PATH,
     LLM_CONTEXT_SIZE,
     LLM_MAX_TOKENS,
+    LLM_REPEAT_PENALTY,
     LLM_TEMPERATURE,
     LLM_TOP_P,
-    LLM_REPEAT_PENALTY,
+    MODEL_PATH,
 )
 
 _llm = None  # module-level singleton

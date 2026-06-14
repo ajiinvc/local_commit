@@ -5,19 +5,18 @@ import subprocess
 import textwrap
 
 from local_commit import __version__
-from local_commit.colors import C, info, ok, warn, err, step, _safe_print, print_banner
+from local_commit.colors import C, _safe_print, err, info, ok, print_banner, step, warn
 from local_commit.config import DIFF_MAX_CHARS
 from local_commit.git_utils import (
+    do_commit,
     ensure_git_repo,
     get_changed_files,
     get_diff,
-    stage_files,
-    do_commit,
     git,
+    stage_files,
 )
 from local_commit.grouping import group_changes
 from local_commit.llm import generate_commit_message, load_model
-
 
 # ─── Entry point ──────────────────────────────────────────────────────────────
 
@@ -79,7 +78,7 @@ def _ensure_dependencies() -> None:
     env["FORCE_CMAKE"] = "1"
 
     cmd = [sys.executable, "-m", "pip", "install", "--quiet"] + missing
-    result = subprocess.run(cmd, env=env)
+    result = subprocess.run(cmd, env=env)  # noqa: S603
     if result.returncode != 0:
         info("Trying pre-built wheel …")
         subprocess.run(
@@ -192,7 +191,7 @@ def interactive_mode(auto: bool = False) -> None:
 
         # Reset and re-stage only this group's files so the diff is focused
         subprocess.run(
-            ["git", "reset", "HEAD", "--quiet"],
+            ["git", "reset", "HEAD", "--quiet"],  # noqa: S607
             capture_output=True,
             encoding="utf-8",
             errors="replace",
@@ -219,7 +218,7 @@ def interactive_mode(auto: bool = False) -> None:
             if choice == "q":
                 warn("Aborted by user.")
                 subprocess.run(
-                    ["git", "reset", "HEAD", "--quiet"],
+                    ["git", "reset", "HEAD", "--quiet"],  # noqa: S607
                     capture_output=True,
                     encoding="utf-8",
                     errors="replace",
@@ -228,7 +227,7 @@ def interactive_mode(auto: bool = False) -> None:
             if choice == "s":
                 info("Skipped.")
                 subprocess.run(
-                    ["git", "reset", "HEAD", "--quiet"],
+                    ["git", "reset", "HEAD", "--quiet"],  # noqa: S607
                     capture_output=True,
                 )
                 continue
