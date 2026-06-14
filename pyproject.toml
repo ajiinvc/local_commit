@@ -60,9 +60,11 @@ python_files = ["test_*.py"]
 [tool.ruff]
 target-version = "py39"
 line-length = 88
+
+[tool.ruff.lint]
 select = ["E", "F", "W", "I", "N", "UP", "S"]
 
-[tool.ruff.per-file-ignores]
+[tool.ruff.lint.per-file-ignores]
 "__init__.py" = ["F401"]
 "tests/*" = ["S101"]
 
