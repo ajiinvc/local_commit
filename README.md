@@ -24,34 +24,18 @@ Works on any OS (Windows, macOS, Linux) — even low-end devices.
 
 Choose your path:
 
-| You have… | Install with |
-|-----------|-------------|
-| Python 3.9+ | `pip install local-commit` |
-| Docker | `make docker-build` |
-| Nothing but a terminal | One-liner below |
-
 ### One-liner installs (no Python needed)
 
 **Linux / macOS:**
 ```bash
-curl -fsSL https://raw.githubusercontent.com/ajiinvc/local-commit/main/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/ajin-varghese-chandy/local-commit/main/scripts/install.sh | bash
 ```
 
 **Windows (PowerShell):**
 ```powershell
-irm https://raw.githubusercontent.com/ajiinvc/local-commit/main/scripts/install.ps1 | iex
+irm https://raw.githubusercontent.com/ajin-varghese-chandy/local-commit/main/scripts/install.ps1 | iex
 ```
 
-The script auto-detects what you have (pip → binary → Docker) and picks the
-best method.
-
-### pip install
-
-```bash
-pip install local-commit
-local-commit --setup        # download model (one-time, ~400 MB)
-cd my-project && local-commit
-```
 
 ### Docker (any OS — no Python on host)
 
@@ -73,7 +57,7 @@ lc
 ### Pre-built binary (no Python, no Docker)
 
 Grab the latest binary from
-[GitHub Releases](https://github.com/ajiinvc/local-commit/releases):
+[GitHub Releases](https://github.com/ajin-varghese-chandy/local-commit/releases):
 
 | Platform | Binary |
 |----------|--------|
@@ -84,32 +68,7 @@ Grab the latest binary from
 
 Download, `chmod +x`, put it on your `PATH`, run `local-commit --setup` once.
 
-### From source
 
-```bash
-git clone https://github.com/your-org/local-commit
-cd local-commit
-
-# Quick start with Make:
-make setup           # install + download model
-local-commit         # use it
-
-# Or manually:
-pip install -e ".[dev]"
-python -m local_commit --setup
-python -m local_commit
-```
-
-### Windows (no admin rights)
-
-```powershell
-# If you have Python:
-pip install local-commit
-local-commit --setup
-
-# Or download the .exe from Releases and put it in %LOCALAPPDATA%\Programs\
-# (the install.ps1 script does this automatically)
-```
 
 ---
 
